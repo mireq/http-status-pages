@@ -91,7 +91,7 @@ function initGl() {
 "uniform mediump vec4 out_color;\n"+
 "void main() {\n"+
 "	gl_FragColor = out_color;\n"+
-"	gl_FragColor.a = ((1.0 - gl_FragCoord.z) * 15.0) * gl_FragColor.a;\n"+
+"	gl_FragColor.a = clamp((0.4 + (0.95 - gl_FragCoord.z) * 8.0) * gl_FragColor.a, 0.0, 1.0);\n"+
 "	gl_FragColor.rgb *= gl_FragColor.a;\n"+
 "}\n"
 	);
@@ -117,7 +117,7 @@ function render() {
 	time += 0.05;
 
 	attr = uniformLocation("out_color");
-	gl.uniform4f(attr, 0.0, 0.0, 0.0, 0.05);
+	gl.uniform4f(attr, 0.0, 0.0, 0.0, 0.07);
 	attr = uniformLocation("offset");
 	gl.uniform1i(attr, 0);
 	attr = uniformLocation("eye");
@@ -130,7 +130,7 @@ function render() {
 	gl.drawArrays(gl.LINES, 0, model.length / 3);
 
 	attr = uniformLocation("out_color");
-	gl.uniform4f(attr, 1.0, 1.0, 1.0, 0.15);
+	gl.uniform4f(attr, 1.0, 1.0, 1.0, 0.2);
 	attr = uniformLocation("offset");
 	gl.uniform1i(attr, 1);
 
@@ -163,7 +163,7 @@ function resizeCanvas() {
 	attr = uniformLocation("z_near");
 	gl.uniform1f(attr, 0.1);
 	attr = uniformLocation("z_far");
-	gl.uniform1f(attr, 1000.0);
+	gl.uniform1f(attr, 10.0);
 	attr = uniformLocation("fovy");
 	gl.uniform1f(attr, 40.0);
 	attr = uniformLocation("center");
