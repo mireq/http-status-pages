@@ -91,7 +91,7 @@ function initGl() {
 "uniform mediump vec4 out_color;\n"+
 "void main() {\n"+
 "	gl_FragColor = out_color;\n"+
-"	gl_FragColor.a = clamp((0.4 + (0.95 - gl_FragCoord.z) * 8.0) * gl_FragColor.a, 0.0, 1.0);\n"+
+"	gl_FragColor.a = clamp((0.4 + (0.95 - gl_FragCoord.z) * 8.0), 0.0, 1.0) * gl_FragColor.a;\n"+
 "	gl_FragColor.rgb *= gl_FragColor.a;\n"+
 "}\n"
 	);
