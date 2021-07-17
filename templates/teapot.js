@@ -116,6 +116,7 @@ function render() {
 
 	time += 0.05;
 
+	gl.lineWidth(Math.max(gl.canvas.width / 720.0, 1.0));
 	attr = uniformLocation("out_color");
 	gl.uniform4f(attr, 0.0, 0.0, 0.0, 0.07);
 	attr = uniformLocation("offset");
