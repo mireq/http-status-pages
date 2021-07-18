@@ -14,6 +14,7 @@ iframe {
 	border: none;
 	opacity: 0.001;
 	transition: all .3s ease;
+	overflow: hidden;
 }
 
 iframe.slow {
@@ -42,6 +43,8 @@ function showIframe(path, attributes) {
 	}
 	iframe.setAttribute('src', path);
 	iframe.setAttribute('seamless', 'seamless');
+	iframe.setAttribute('scrolling', 'no');
+
 	if (currentFrame !== undefined) {
 		setTimeout((function(iframe) { return function() { iframe.parentNode.removeChild(iframe); } } (currentFrame)), 3500);
 	}
@@ -52,12 +55,19 @@ function showIframe(path, attributes) {
 }
 
 var pages = [['100.html', 3000], ['200.html', 3000, {'class': 'slow'}], ['300.html', 3000, {'class': 'slow'}], ['400.html', 3000, {'class': 'slow'}], ['500.html', 3000, {'class': 'slow'}], , ['418.html', 35000, {'class': 'slow'}], ['101.html', 500], ['102.html', 500], ['103.html', 500], ['201.html', 500], ['202.html', 500], ['203.html', 500], ['204.html', 500], ['205.html', 500], ['206.html', 500], ['207.html', 500], ['208.html', 500], ['226.html', 500], ['301.html', 500], ['302.html', 500], ['303.html', 500], ['304.html', 500], ['305.html', 500], ['306.html', 500], ['307.html', 500], ['308.html', 500], ['401.html', 500], ['402.html', 500], ['403.html', 500], ['404.html', 500], ['405.html', 500], ['406.html', 500], ['407.html', 500], ['408.html', 500], ['409.html', 500], ['410.html', 500], ['411.html', 500], ['412.html', 500], ['413.html', 500], ['414.html', 500], ['415.html', 500], ['416.html', 500], ['417.html', 500], ['421.html', 500], ['422.html', 500], ['423.html', 500], ['424.html', 500], ['425.html', 500], ['426.html', 500], ['428.html', 500], ['429.html', 500], ['431.html', 500], ['451.html', 500], ['501.html', 500], ['502.html', 500], ['503.html', 500], ['504.html', 500], ['505.html', 500], ['506.html', 500], ['507.html', 500], ['508.html', 500], ['510.html', 500], ['511.html', 500]];
-var startTime = 100;
 
-pages.forEach(function(page) {
-	setTimeout(function() { showIframe('./output/' + page[0], page[2] || {}); }, startTime * 2);
-	startTime += page[1];
-});
+function startAnimation() {
+	var startTime = 100;
+	pages.forEach(function(page) {
+		setTimeout(function() { showIframe('./output/' + page[0], page[2] || {}); }, startTime * 2);
+		startTime += page[1];
+	});
+
+	startTime += 10000;
+	setTimeout(function() { startAnimation(); }, startTime * 2);
+}
+
+startAnimation();
 
 </script>
 </body>

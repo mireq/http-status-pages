@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Precondition Failed</title>
+	<meta charset="utf-8" />
+	<style>
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+	font-weight: normal;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+html {
+	background-color: #000000;
+}
+
+body:before, body:after {
+	content: '';
+	display: block;
+	position: fixed;
+	z-index: -2;
+}
+
+body:before {
+	width: 120%;
+	height: 120%;
+	top: -10%;
+	left: -10%;
+	background: #270428 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAANCAMAAACTkM4rAAAAqFBMVEUsAAAqAABIEBkyAAA8AABPEhdXFhtQEytLE0GELCfig0ujRzBDDyA6CR5vIUPAYHCoSGdeGTWQMSNEDxSyUDAdAABvIRxjGx6rS3CJMmVBDy98KVYzACwnAA26WW+QNFRxIC/LajpHAACSOGudPmNfHE9SF1VYGEOILkWtSlC8Vjjce17CXEeVOTPZe0K+XV/VbUXQcW5AAETlh2JsI1/rj1TQb1WZRi0hZRvSAAAAq0lEQVR4Xj3MZXLDMACEUTGamdlhKt//ZpWctO/nNzsLIISt27xbTdO2aZoC6DiVEDtLiKpy3S3x/fpprXvBHZMw4qFXl/NclnXthdyBz9QvRVEEwdJ7IcImseHQB53v+10XHAZKAKH5cD3e3zb+UbLJJqkv3+cP63yJtlUWJaP6MpR6nOR/uqnbeEoSHeUxsPfZVesfmeUGQyaBGFHGKEXxCzAwmSZCMPjzC1mgE2qoUQmPAAAAAElFTkSuQmCC') no-repeat center center;
+	background-size: cover;
+	filter: blur(4vw);
+}
+
+body:after {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAEklEQVR42mMAAl44BhMIgOAAAAZzAELl6FS2AAAAAElFTkSuQmCC") repeat;
+}
+
+.status-middle {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100%;
+	padding: 2em 1em;
+	max-width: 40em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.status-code {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.2), 1px 2px 4px rgba(0, 0, 0, 0.2), 1px 4px 8px rgba(0, 0, 0, 0.2), 1px 8px 16px rgba(0, 0, 0, 0.2);
+	color: #ffffff;
+}
+
+h1 {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1), 1px 4px 8px rgba(0, 0, 0, 0.1), 1px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.status-code {
+	font-weight: 800;
+	font-size: 6em;
+	line-height: 1;
+	opacity: .4;
+}
+
+p {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+	font-weight: 300;
+	line-height: 1.2;
+	font-size: 2.5em;
+}
+
+.links {
+	text-align: center;
+	margin-top: 2em;
+}
+
+.button {
+	display: inline-block;
+	font-weight: 800;
+	font-size: 80%;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	padding: 1em 1.5em;
+	border-radius: 3px;
+	border: 1px solid #00000010;
+	border-bottom-color: #ffffff30;
+	margin-bottom: 2px;
+	outline: none;
+	color: #ffffff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1), 1px 4px 8px rgba(0, 0, 0, 0.1);
+	background: #00000010;
+}
+
+.button:hover, .button:active, .button:focus {
+	background: #00000020;
+}
+
+.background-canvas {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 110%;
+	}
+}
+
+	</style>
+</head>
+
+<body>
+<div class="status-middle">
+	<div class="status-code">412</div>
+	<h1>Precondition Failed</h1>
+	
+		
+			<p>The 412 (Precondition Failed) status code indicates that one or more conditions given in the request header fields evaluated to false when tested on the server. This response code allows the client to place preconditions on the current resource state (its current representations and metadata) and, thus, prevent the request method from being applied if the target resource is in an unexpected state.</p>
+		
+	
+	
+</div>
+
+
+</body>
+</html>

@@ -1,9 +1,299 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HTML error pages</title>
+	<title>HTML staus pages</title>
 	<meta charset="utf-8" />
+	<style>
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+	font-weight: normal;
+	color: #000000;
+	background: #ffffff;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	line-height: 1.4;
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: .75em 0 .5em 0;
+	color: #777;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+p {
+	margin: .5em 0;
+}
+
+iframe {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+}
+
+code {
+	font-family: 'Ubuntu Mono', monospace;
+	color: #d14;
+}
+
+pre {
+	overflow-y: auto;
+	margin: .5em 0;
+	padding: .5em 1em;
+	background: #fafafa;
+	border: 1px solid #ededed;
+	border-radius: 3px;
+}
+
+a {
+	color: #78c;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+li {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+li:before {
+	content: "• ";
+	color: #999;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 1200px;
+	display: block;
+}
+
+.heading {
+	margin: 0;
+	color: #ffffff;
+	background: #333333;
+	overflow: hidden;
+	text-align: center;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
+
+.heading h1 {
+	color: inherit;
+}
+
+.screenshot {
+	margin: 1em -1em;
+}
+
+.screenshot img {
+	display: block;
+	max-width: 100%;
+}
+
+.screen-preview {
+	position: relative;
+	padding-bottom: 75%;
+	margin-left: -1em;
+	margin-right: -1em;
+}
+
+.screen-preview iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 110%;
+	}
+
+	.heading {
+		text-align: left;
+	}
+}
+
+	</style>
 </head>
 <body>
+	<div class="heading">
+		<div class="container">
+			<h1>HTML status pages</h1>
+			<p>Simple HTML status templates and page generator.</p>
+		</div>
+	</div>
+
+	<div class="container">
+		<p>This is set of HTML status pages intended for web servers (nginx, apache…).</p>
+
+		<h2>How to use with nginx</h2>
+
+		<p>Create file <code>/etc/nginx/snippets/standard-error-pages.conf</code> with following content:</p>
+
+		<pre>
+error_page 400 /error/400.html;
+error_page 401 /error/401.html;
+error_page 402 /error/402.html;
+error_page 403 /error/403.html;
+error_page 404 /error/404.html;
+error_page 405 /error/405.html;
+error_page 406 /error/406.html;
+error_page 407 /error/407.html;
+error_page 408 /error/408.html;
+error_page 409 /error/409.html;
+error_page 410 /error/410.html;
+error_page 411 /error/411.html;
+error_page 412 /error/412.html;
+error_page 413 /error/413.html;
+error_page 414 /error/414.html;
+error_page 415 /error/415.html;
+error_page 416 /error/416.html;
+error_page 417 /error/417.html;
+error_page 418 /error/418.html;
+error_page 421 /error/421.html;
+error_page 422 /error/422.html;
+error_page 423 /error/423.html;
+error_page 424 /error/424.html;
+error_page 425 /error/425.html;
+error_page 426 /error/426.html;
+error_page 428 /error/428.html;
+error_page 429 /error/429.html;
+error_page 431 /error/431.html;
+error_page 451 /error/451.html;
+error_page 500 /error/500.html;
+error_page 501 /error/501.html;
+error_page 502 /error/502.html;
+error_page 503 /error/503.html;
+error_page 504 /error/504.html;
+error_page 505 /error/505.html;
+error_page 506 /error/506.html;
+error_page 507 /error/507.html;
+error_page 508 /error/508.html;
+error_page 510 /error/510.html;
+error_page 511 /error/511.html;
+recursive_error_pages on;
+
+location @system_wide_error_pages {
+	root /usr/share/nginx/html/;
+}
+
+location ~ ^/error/(.*)$ {
+	internal;
+	try_files /error/$1 @system_wide_error_pages;
+}
+		</pre>
+
+		<p>Then upload contents of directory <code>output</code> to <code>/usr/share/nginx/html/error</code> and include <code>snippets/standard-error-pages.conf</code> in server block.</p>
+
+		<h2>Screenshots</h2>
+
+		<div class="screenshot">
+			<a href="status.png"><img src="status.png" alt="Status pages"></a>
+		</div>
+
+		<h2>Pages</h2>
+
+		<ul>
+			<li><a href="output/100.html" target="_blank">100.html</a></li>
+			<li><a href="output/101.html" target="_blank">101.html</a></li>
+			<li><a href="output/102.html" target="_blank">102.html</a></li>
+			<li><a href="output/103.html" target="_blank">103.html</a></li>
+			<li><a href="output/200.html" target="_blank">200.html</a></li>
+			<li><a href="output/201.html" target="_blank">201.html</a></li>
+			<li><a href="output/202.html" target="_blank">202.html</a></li>
+			<li><a href="output/203.html" target="_blank">203.html</a></li>
+			<li><a href="output/204.html" target="_blank">204.html</a></li>
+			<li><a href="output/205.html" target="_blank">205.html</a></li>
+			<li><a href="output/206.html" target="_blank">206.html</a></li>
+			<li><a href="output/207.html" target="_blank">207.html</a></li>
+			<li><a href="output/208.html" target="_blank">208.html</a></li>
+			<li><a href="output/226.html" target="_blank">226.html</a></li>
+			<li><a href="output/300.html" target="_blank">300.html</a></li>
+			<li><a href="output/301.html" target="_blank">301.html</a></li>
+			<li><a href="output/302.html" target="_blank">302.html</a></li>
+			<li><a href="output/303.html" target="_blank">303.html</a></li>
+			<li><a href="output/304.html" target="_blank">304.html</a></li>
+			<li><a href="output/305.html" target="_blank">305.html</a></li>
+			<li><a href="output/306.html" target="_blank">306.html</a></li>
+			<li><a href="output/307.html" target="_blank">307.html</a></li>
+			<li><a href="output/308.html" target="_blank">308.html</a></li>
+			<li><a href="output/400.html" target="_blank">400.html</a></li>
+			<li><a href="output/401.html" target="_blank">401.html</a></li>
+			<li><a href="output/402.html" target="_blank">402.html</a></li>
+			<li><a href="output/403.html" target="_blank">403.html</a></li>
+			<li><a href="output/404.html" target="_blank">404.html</a></li>
+			<li><a href="output/405.html" target="_blank">405.html</a></li>
+			<li><a href="output/406.html" target="_blank">406.html</a></li>
+			<li><a href="output/407.html" target="_blank">407.html</a></li>
+			<li><a href="output/408.html" target="_blank">408.html</a></li>
+			<li><a href="output/409.html" target="_blank">409.html</a></li>
+			<li><a href="output/410.html" target="_blank">410.html</a></li>
+			<li><a href="output/411.html" target="_blank">411.html</a></li>
+			<li><a href="output/412.html" target="_blank">412.html</a></li>
+			<li><a href="output/413.html" target="_blank">413.html</a></li>
+			<li><a href="output/414.html" target="_blank">414.html</a></li>
+			<li><a href="output/415.html" target="_blank">415.html</a></li>
+			<li><a href="output/416.html" target="_blank">416.html</a></li>
+			<li><a href="output/417.html" target="_blank">417.html</a></li>
+			<li><a href="output/418.html" target="_blank">418.html</a></li>
+			<li><a href="output/421.html" target="_blank">421.html</a></li>
+			<li><a href="output/422.html" target="_blank">422.html</a></li>
+			<li><a href="output/423.html" target="_blank">423.html</a></li>
+			<li><a href="output/424.html" target="_blank">424.html</a></li>
+			<li><a href="output/425.html" target="_blank">425.html</a></li>
+			<li><a href="output/426.html" target="_blank">426.html</a></li>
+			<li><a href="output/428.html" target="_blank">428.html</a></li>
+			<li><a href="output/429.html" target="_blank">429.html</a></li>
+			<li><a href="output/431.html" target="_blank">431.html</a></li>
+			<li><a href="output/451.html" target="_blank">451.html</a></li>
+			<li><a href="output/500.html" target="_blank">500.html</a></li>
+			<li><a href="output/501.html" target="_blank">501.html</a></li>
+			<li><a href="output/502.html" target="_blank">502.html</a></li>
+			<li><a href="output/503.html" target="_blank">503.html</a></li>
+			<li><a href="output/504.html" target="_blank">504.html</a></li>
+			<li><a href="output/505.html" target="_blank">505.html</a></li>
+			<li><a href="output/506.html" target="_blank">506.html</a></li>
+			<li><a href="output/507.html" target="_blank">507.html</a></li>
+			<li><a href="output/508.html" target="_blank">508.html</a></li>
+			<li><a href="output/510.html" target="_blank">510.html</a></li>
+			<li><a href="output/511.html" target="_blank">511.html</a></li>
+		</ul>
+
+		<h2><a href="demo.html">Demo</a></h2>
+
+		<div class="screen-preview">
+			<iframe src="demo.html" sameless="sameless" scrolling="no"></iframe>
+		</div>
+	</div>
+
 </body>
 </html>

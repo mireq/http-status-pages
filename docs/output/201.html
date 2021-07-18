@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Created</title>
+	<meta charset="utf-8" />
+	<style>
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+	font-weight: normal;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+html {
+	background-color: #000000;
+}
+
+body:before, body:after {
+	content: '';
+	display: block;
+	position: fixed;
+	z-index: -2;
+}
+
+body:before {
+	width: 120%;
+	height: 120%;
+	top: -10%;
+	left: -10%;
+	background: #727518 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAANCAIAAAArLKlOAAAB7klEQVQoz12NS2/TQBRGvzsznhm/GjtJaZoGhFAFYgf//5+woKISLa1LW8Wxk3leVkiIo7M9OgRsAAUkIG82/WpdPw774WEAJCAACRD+hwnYARowHz+v+r7qz4oYw/ebQUl19+t42M+AAMQ/TQaCBNaAbs+XtrLzKbxZV9aYtmnqtrm8XP649WAJ6H8UACnAAnoc/DiMuw/tfMw5pcfn6ef9nqRBTkANU8DFvysFCEL5BVwCCjJVNszzSMx8mgEquvOzuln25aIth8Hd3nueIhABL7e7ndBF01JdqaM7pnFGdICol8u3m7Zp7N3jobb06XrxbqvZiNcRYMir7WWphSD2zh8mj8AQujlfXl101+/X/ZlRUoQYBeH5eepaCS3GkKXSvdZy2VWlLZSSLEVRamtU31bz0T0MI5MIkQ+H0/B7etkfVwuTJVTT2LOmXPVVjFRou73oCiVDZGukIC6tMlXpT+HbzVMGEZPW2HQku03vMrsUfEovo3s9xP3kYmJTSBJSm2LdWa2ELmSh2bMLcMBEi68wNYyB0uIUBMfOirYUdQwyp2yV0gVyDsc4Er0k3nsH56CKAspAWDBlIzPzU8bTBLBGyhgTMoMTcobIEAATAkMlhvfwHkQAgwgEgBAzQkTMACNncAInZA/OQMYfvqn3FrmOcl0AAAAASUVORK5CYII=') no-repeat center center;
+	background-size: cover;
+	filter: blur(4vw);
+}
+
+body:after {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAEklEQVR42mMAAl44BhMIgOAAAAZzAELl6FS2AAAAAElFTkSuQmCC") repeat;
+}
+
+.status-middle {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100%;
+	padding: 2em 1em;
+	max-width: 40em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.status-code {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.2), 1px 2px 4px rgba(0, 0, 0, 0.2), 1px 4px 8px rgba(0, 0, 0, 0.2), 1px 8px 16px rgba(0, 0, 0, 0.2);
+	color: #ffffff;
+}
+
+h1 {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1), 1px 4px 8px rgba(0, 0, 0, 0.1), 1px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.status-code {
+	font-weight: 800;
+	font-size: 6em;
+	line-height: 1;
+	opacity: .4;
+}
+
+p {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+	font-weight: 300;
+	line-height: 1.2;
+	font-size: 2.5em;
+}
+
+.links {
+	text-align: center;
+	margin-top: 2em;
+}
+
+.button {
+	display: inline-block;
+	font-weight: 800;
+	font-size: 80%;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	padding: 1em 1.5em;
+	border-radius: 3px;
+	border: 1px solid #00000010;
+	border-bottom-color: #ffffff30;
+	margin-bottom: 2px;
+	outline: none;
+	color: #ffffff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1), 1px 4px 8px rgba(0, 0, 0, 0.1);
+	background: #00000010;
+}
+
+.button:hover, .button:active, .button:focus {
+	background: #00000020;
+}
+
+.background-canvas {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 110%;
+	}
+}
+
+	</style>
+</head>
+
+<body>
+<div class="status-middle">
+	<div class="status-code">201</div>
+	<h1>Created</h1>
+	
+		
+			<p>The 201 (Created) status code indicates that the request has been fulfilled and has resulted in one or more new resources being created. The primary resource created by the request is identified by either a Location header field in the response or, if no Location field is received, by the effective request URI.</p>
+		
+	
+	
+</div>
+
+
+</body>
+</html>
