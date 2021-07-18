@@ -1,6 +1,6 @@
-# HTML status pages
+# HTTP status pages
 
-This is set of HTML status pages intended for web servers (nginx, apache…).
+This is set of HTTP status pages intended for web servers (nginx, apache…).
 
 ![Screenshots](https://mireq.github.io/http-status-pages/status.png)
 
