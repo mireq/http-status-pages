@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# Data from http://webconcepts.info/concepts/http-status-code.json
+
 HTTP_CODES = [
 	{ "value" : "100",
 		"concept" : "http:\/\/webconcepts.info\/concepts\/http-status-code\/",
