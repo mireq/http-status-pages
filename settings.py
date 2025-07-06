@@ -575,6 +575,17 @@ HTTP_CODES = [
 				"specification" : "http://webconcepts.info/specs/IETF/RFC/7725",
 				"spec-name" : "RFC 7725" } ] },
 
+	{ "value" : "497",
+		"concept" : "https://http.dev/497",
+		"id" : "https://http.dev/497",
+		"description" : "HTTP Request Sent to HTTPS Port",
+		"details" :
+		[
+			{ "description" : "This status code is used by some proxies or servers (not standardized) to indicate that an HTTP request was received on a port that requires HTTPS. The client should retry the request using HTTPS instead of HTTP.",
+				"documentation" : "https://http.dev/497",
+				"specification" : "https://http.dev/497",
+				"spec-name" : "Unofficial HTTP Status Codes" } ] },
+
 	{ "value" : "500",
 		"concept" : "http://webconcepts.info/concepts/http-status-code/",
 		"id" : "http://webconcepts.info/concepts/http-status-code/500",
